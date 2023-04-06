@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    stages {
+        stage ('vcs') {
+           steps {
+             git url :'https://github.com/prakashgarjagithub/Terraform.git',
+                 branch : 'main' 
+            }
+        }    
+        stage ("terraform init") {
+            steps {
+                sh 'terraform init'
+                sh 'terraform apply --auto-approve'
+            }
+        }
+    }
+}
