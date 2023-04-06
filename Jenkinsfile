@@ -3,7 +3,12 @@ pipeline {
     stages {
         stage ('vcs') {
            steps {
-             git url :'https://github.com/prakashgarjagithub/Terraform.git',
+             git url :'pipeline {
+    agent any
+    stages {
+        stage ('vcs') {
+           steps {
+             git url :'https://github.com/prakashgarjagithub/EC2-ansible.git',
                  branch : 'main' 
             }
         }    
@@ -14,4 +19,3 @@ pipeline {
             }
         }
     }
-}
